@@ -1,12 +1,37 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('api')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('/:book/check')
+  getHealth(@Param('book') book: string): {} {
+    return this.appService.getHealth(book);
+  }
+  @Get('/:book/chapters')
+  getChapterCount(@Param('book') book: string): {} {
+    return this.appService.getChaptersCount(book);
+  }
+
+  @Get('/:book/:chapter')
+  async getChapter(
+    @Param('book') book: string,
+    @Param('chapter') chapter: number,
+  ): Promise<any> {
+    return this.appService.getChapter(book, chapter);
+  }
+
+  @Get('/:book/:chapter/:verse')
+  async getVerse(
+    @Param('book') book: string,
+    @Param('chapter') chapter: number,
+    @Param('verse') verse: number,
+  ): Promise<any> {
+    return this.appService.getVerse(book, chapter, verse);
+  }
+  @Get('search')
+  async serachVerse(@Query() params: any): Promise<any> {
+    return this.appService.searchVerse(params.text);
   }
 }
