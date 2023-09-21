@@ -12,8 +12,9 @@ const { Client } = require('pg');
 // });
 
 export const connection = new Client(
-  process.env.SQL_STRING
+  'postgresql://adminuser:hvodjxmbqW94JPcU4pjHfA@oblong-weasel-9364.8nj.cockroachlabs.cloud:26257/revelationary?sslmode=verify-full',
 );
+
 
 const client = connection.connect();
 
