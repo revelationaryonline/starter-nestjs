@@ -11,10 +11,6 @@ const { Client } = require('pg');
 //   database: 'revelationary',
 // });
 
-// export const connection = new Client(
-//   'postgresql://adminuser:hvodjxmbqW94JPcU4pjHfA@oblong-weasel-9364.8nj.cockroachlabs.cloud:26257/revelationary?sslmode=verify-full',
-// );
-
 export const connection = new Client(
   process.env.SQL_STRING
 );
