@@ -14,24 +14,25 @@ export class AppController {
     return this.appService.getChaptersCount(book);
   }
 
-  @Get('/:book/:chapter')
-  async getChapter(
-    @Param('book') book: string,
-    @Param('chapter') chapter: number,
-  ): Promise<any> {
-    return this.appService.getChapter(book, chapter);
-  }
+  // @Get('/:book/:chapter')
+  // async getChapter(
+  //   @Param('book') book: string,
+  //   @Param('chapter') chapter: number,
+  // ): Promise<any> {
+  //   return this.appService.getChapter(book, chapter);
+  // }
 
-  @Get('/:book/:chapter/:verse')
-  async getVerse(
-    @Param('book') book: string,
-    @Param('chapter') chapter: number,
-    @Param('verse') verse: number,
-  ): Promise<any> {
-    return this.appService.getVerse(book, chapter, verse);
-  }
+  // @Get('/:book/:chapter/:verse')
+  // async getVerse(
+  //   @Param('book') book: string,
+  //   @Param('chapter') chapter: number,
+  //   @Param('verse') verse: number,
+  // ): Promise<any> {
+  //   return this.appService.getVerse(book, chapter, verse);
+  // }
+
   @Get('search')
   async serachVerse(@Query() params: any): Promise<any> {
-    return this.appService.searchVerse(params.text);
+    return this.appService.searchVerseAcrossBooks(params.text);
   }
 }

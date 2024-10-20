@@ -1,21 +1,12 @@
-const mysql = require('mysql2');
-const { Client } = require('pg');
+const mongoose = require('mongoose');
 
-// export const connection = mysql.createConnection({
-//   // host: 'revelationary.citilhjkmmsj.eu-west-1.rds.amazonaws.com',
-//   host: '127.0.0.1',
-//   // host: 'revelationary.citilhjkmmsj.eu-west-1.rds.amazonaws.com',
-//   user: 'root',
-//   password: 'password',
-//   port: 3306,
-//   database: 'revelationary',
-// });
+const uri = 'mongodb+srv://root:root@revelationary.rnyzipd.mongodb.net/revelationary?retryWrites=true&w=majority&appName=revelationary';
 
-export const connection = new Client(
-  'postgresql://adminuser:hvodjxmbqW94JPcU4pjHfA@oblong-weasel-9364.8nj.cockroachlabs.cloud:26257/revelationary?sslmode=verify-full',
-);
-
-
-const client = connection.connect();
-
-console.log(client);
+mongoose.connect(uri)
+  .then(() => {
+    console.log('Connected to MongoDB');
+    mongoose.connection.close();
+  })
+  .catch(err => {
+    console.error('Database connection error:', err);
+  });
