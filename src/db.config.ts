@@ -12,7 +12,7 @@ const { Client } = require('pg');
 // });
 
 export const connection = new Client(
-  'postgresql://adminuser:hvodjxmbqW94JPcU4pjHfA@oblong-weasel-9364.8nj.cockroachlabs.cloud:26257/revelationary?sslmode=verify-full',
+  'postgresql://adminuser:hvodjxmbqW94JPcU4pjHfA@oblong-weasel-9364.8nj.gcp-europe-west1.cockroachlabs.cloud:26257/revelationary?sslmode=verify-full',
 );
 
 

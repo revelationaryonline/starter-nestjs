@@ -9,6 +9,7 @@ export class AppService {
         `SELECT * from ${book}`,
         function (error, results, fields) {
           if (error) throw error;
+          
           results = results.rows.map((result) => {
             return Object.assign({}, result);
           });
